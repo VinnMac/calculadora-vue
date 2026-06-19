@@ -31,22 +31,31 @@
 </template>
 
 <style scoped>
-.calc {
-    display: flex;
-    align-items: center;
+    .calc {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        margin: 0 auto;
+        }
+
+    input, select {
+        padding: .2rem;
+        border: 2px solid #e2e9f0;
+        border-radius: 8px;
     }
 
-input {
-margin: .3rem;
-max-width: 5rem;
-}
+    input {
+    margin: .3rem;
+    max-width: 4rem;
+    }
 
-.igual {
-padding: 0 1rem;
-}
+    .igual {
+    padding: 0 1rem;
+    }
 
-.resultadoDaOperacao {
-    font-size: 2.5rem;
-    color: #e2e9f0;
-}
+    .resultadoDaOperacao {
+        font-size: 2.5rem;
+        color: #e2e9f0;
+    }
 </style>

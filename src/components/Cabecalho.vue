@@ -11,12 +11,14 @@
 
 <style scoped>
   h1 {
+      text-align: center;
       font-family: sans-serif;
       letter-spacing: .02em;
       color: #e2e9f0;
     }
 
     .instrucoes {
+      margin-left: 5rem;
       color: #405060;
     }
 </style>
