@@ -32,7 +32,7 @@
 <template>
   <div class="container">
     <Cabecalho />
-    <Calculadora :numero1="estado.numero1" :numero2="estado.numero2" :operacao="estado.operacao" :resultadoDaOperacao="resultado" />
+    <Calculadora :numero1="estado.numero1" :numero2="estado.numero2" :operacao="estado.operacao" :resultadoDaOperacao="resultado" @atualizaNumero1= "valor => estado.numero1 = valor" @atualizaNumero2= "valor => estado.numero2 = valor" @atualizaOperacao="valor => estado.operacao = valor"  />
   </div>
 </template>
 

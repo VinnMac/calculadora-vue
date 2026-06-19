@@ -1,18 +1,29 @@
-<script setup>
-    const props = defineProps(['numero1', 'numero2', 'operacao', 'resultadoDaOperacao']);
+<script setup lang="ts">
+    const props = defineProps<{
+        numero1: number 
+        numero2: number 
+        operacao: string
+        resultadoDaOperacao: number
+    }>();
+
+    const emit = defineEmits<{
+        atualizaNumero1: [number] 
+        atualizaNumero2: [number]
+        atualizaOperacao: [string]
+        }>();
 </script>
 
 <template>
     <div class="calc">
         <form>
-            <input v-model.number="props.numero1" type="number">
-            <select v-model="props.operacao">
+            <input @input="evento => emit('atualizaNumero1', Number((evento.target as HTMLInputElement).value))" :value="props.numero1" type="number">
+            <select @change="evento => emit('atualizaOperacao', (evento.target as HTMLSelectElement).value)" :value="props.operacao">
                 <option value="adicao">+</option>
                 <option value="subtracao">-</option>
                 <option value="multiplicacao">*</option>
                 <option value="divisao">/</option>
             </select>
-            <input v-model.number="props.numero2" type="number">
+            <input @input="evento => emit('atualizaNumero2', Number((evento.target as HTMLInputElement).value))" :value="props.numero2" type="number">
         </form>
         <p class="igual">=</p>
         <h2 class="resultadoDaOperacao">{{ props.resultadoDaOperacao }}</h2>
