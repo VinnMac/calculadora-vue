@@ -55,6 +55,8 @@
     }
 
     .resultadoDaOperacao {
+        display: inline-block;
+        min-width: 40%;
         font-size: 2.5rem;
         color: #e2e9f0;
     }
