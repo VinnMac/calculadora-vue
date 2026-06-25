@@ -46,9 +46,15 @@
         valor = 0
     }
 
-    return typeof valor === 'number'
-    ? Math.round(valor * 100) / 100
-    : valor;
+    if (typeof valor === 'number') {
+      const valorArredondado = Math.round(valor * 100) / 100;
+      
+      return valorArredondado.toString().length > 12
+      ? valorArredondado.toExponential(6)
+      : valorArredondado;
+    }
+
+    return valor;
   })
 </script>
 
