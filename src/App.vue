@@ -4,6 +4,8 @@
   import Cabecalho from './components/Cabecalho.vue';
   import Calculadora from './components/Calculadora.vue';
 
+  let valor: number | string = 0;
+
 
   const estado = reactive({
     numero1 : 0,
@@ -12,20 +14,41 @@
   })
 
   const resultado = computed (() => {
+    const INDETERMINADO = 'Indeterminado';
+    const INDEFINIDO = 'Indefinido';
+
     const { operacao, numero1, numero2 } = estado;
 
     switch (operacao) {
       case 'adicao':
-        return numero1 + numero2;
+        valor = numero1 + numero2;
+        break;
+
       case 'subtracao':
-        return numero1 - numero2;
+        valor = numero1 - numero2;
+        break;
+
       case 'multiplicacao':
-        return numero1 * numero2;
+        valor = numero1 * numero2;
+        break;
+
       case 'divisao':
-        return numero1 / numero2;
+        if (numero2 === 0) {
+          valor = numero1 === 0
+          ? INDETERMINADO
+          : INDEFINIDO;
+        } else {
+          valor = numero1 / numero2;
+        }
+        break;
+
       default:
-        return 0
+        valor = 0
     }
+
+    return typeof valor === 'number'
+    ? Math.round(valor * 100) / 100
+    : valor;
   })
 </script>
 

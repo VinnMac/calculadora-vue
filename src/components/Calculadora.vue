@@ -3,7 +3,7 @@
         numero1: number 
         numero2: number 
         operacao: string
-        resultadoDaOperacao: number
+        resultadoDaOperacao: number | string
     }>();
 
     const emit = defineEmits<{
